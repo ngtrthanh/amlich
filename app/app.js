@@ -90,7 +90,19 @@ function render(){
     root.innerHTML=`<div class="container">
         <div class="header">
             <h1>LỊCH VẠN NIÊN</h1>
-            <button class="btn-today" onclick="goToday()">📅 Xem nhanh theo ngày</button>
+            <div class="header-right">
+                <button class="auto-toggle" onclick="toggleAutoTheme()">🔄 Auto</button>
+                <select class="theme-picker" onchange="setTheme(this.value)">
+                    <option value="original">Original</option>
+                    <option value="traditional">Traditional</option>
+                    <option value="minimal">Minimal</option>
+                    <option value="cyberpunk">Cyberpunk</option>
+                    <option value="nature">Nature Zen</option>
+                    <option value="sunset">Sunset</option>
+                    <option value="ocean">Ocean</option>
+                </select>
+                <button class="btn-today" onclick="goToday()">📅 Xem nhanh</button>
+            </div>
         </div>
 
         <div class="day-display">
