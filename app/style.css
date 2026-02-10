@@ -1,7 +1,53 @@
 :root{--scale:0.75;--theme-primary:#3a8a3e;--theme-accent:#60ae64;--theme-text:#333;--theme-border:#ccc;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;transition:all 0.5s ease;}
+body{transition:all 0.5s ease;}
 .container{width:calc(100% * var(--scale));max-width:calc(860px * var(--scale));margin:20px auto;background:rgba(255,255,255,0.95);box-shadow:0 4px 20px rgba(0,0,0,0.15);border-radius:8px;overflow:hidden;}
+
+/* VERTICAL LAYOUT - Traditional */
+body.layout-vertical .container{max-width:calc(500px * var(--scale));border-radius:0;}
+body.layout-vertical .header{writing-mode:horizontal-tb;padding:20px;text-align:center;}
+body.layout-vertical .header h1{font-size:2rem;margin-bottom:10px;}
+body.layout-vertical .day-display{flex-direction:column;padding:30px 20px;}
+body.layout-vertical .solar-side{border-right:none;border-bottom:3px solid var(--theme-border);}
+body.layout-vertical .big-num{font-size:8rem;}
+
+/* GRID LAYOUT - Minimal */
+body.layout-grid .container{max-width:calc(1000px * var(--scale));border-radius:0;box-shadow:none;background:transparent;}
+body.layout-grid .header{border-radius:0;margin-bottom:2px;}
+body.layout-grid .day-display{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--theme-border);}
+body.layout-grid .solar-side{border:none;background:#fff;}
+body.layout-grid .lunar-side{background:#fff;}
+body.layout-grid .cal-grid{gap:2px;background:var(--theme-border);}
+body.layout-grid .cal-cell{border:none;border-radius:0;}
+
+/* NEON LAYOUT - Cyberpunk */
+body.layout-neon .container{border:3px solid var(--theme-accent);box-shadow:0 0 30px var(--theme-primary),0 0 60px var(--theme-accent);transform:perspective(1000px) rotateX(2deg);}
+body.layout-neon .header{clip-path:polygon(0 0,100% 0,95% 100%,5% 100%);}
+body.layout-neon .big-num{font-size:7rem;font-weight:900;letter-spacing:-5px;transform:skewX(-5deg);}
+body.layout-neon .cal-cell{clip-path:polygon(5% 0,100% 0,95% 100%,0 100%);margin:2px;}
+
+/* CIRCULAR LAYOUT - Nature */
+body.layout-circular .day-display{border-radius:50%;max-width:400px;margin:20px auto;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;border:5px solid var(--theme-border);}
+body.layout-circular .solar-side{position:absolute;top:50%;left:50%;transform:translate(-50%,-80%);}
+body.layout-circular .lunar-side{position:absolute;top:50%;left:50%;transform:translate(-50%,20%);}
+body.layout-circular .solar-side{border:none;}
+body.layout-circular .nav-arrow{border-radius:0;transform:translateY(-50%) rotate(45deg);}
+
+/* MAGAZINE LAYOUT - Sunset */
+body.layout-magazine .container{max-width:calc(1200px * var(--scale));}
+body.layout-magazine .header{display:grid;grid-template-columns:2fr 1fr;padding:30px;gap:20px;}
+body.layout-magazine .header h1{font-size:3rem;line-height:0.9;letter-spacing:-2px;}
+body.layout-magazine .day-display{display:grid;grid-template-columns:2fr 1fr;min-height:300px;}
+body.layout-magazine .big-num{font-size:12rem;line-height:0.8;font-weight:900;}
+body.layout-magazine .month-nav{grid-template-columns:auto 1fr auto auto auto;}
+
+/* WAVE LAYOUT - Ocean */
+body.layout-wave .container{border-radius:30px;overflow:visible;}
+body.layout-wave .header{border-radius:30px 30px 0 0;clip-path:ellipse(100% 100% at 50% 0%);}
+body.layout-wave .day-display{clip-path:ellipse(100% 100% at 50% 100%);}
+body.layout-wave .cal-cell{border-radius:15px;margin:3px;}
+body.layout-wave .big-num{font-size:7rem;background:linear-gradient(45deg,var(--theme-primary),var(--theme-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
 
 /* ===== HEADER ===== */
 .header{background:var(--theme-primary);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
